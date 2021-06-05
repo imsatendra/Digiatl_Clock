@@ -34,7 +34,7 @@
 </head>
 <body>
     <div class="container">
-        <span class = "clock"></span>
+        <span class = "clock">3:00</span>
 
     </div>
     <script>
@@ -43,17 +43,18 @@
             let d = new Date();
             
             let h = d.getHours();
+            let amPm = h>12  ? 'PM' : 'AM';
             let m = d.getMinutes();
             let s = d.getSeconds();
             if(h>12) {
                 h = h%12;
             }
 
-            return `${h} : ${m} : ${s}`;
+            return `${h} : ${m} : ${s}  ${amPm}`;
         }
         setInterval(() => {
             // console.log(getTime())
-         let clockOb =    document.querySelector('.clock');
+        const clockOb  =  document.querySelector('.clock')
           clockOb.innerHTML = getTime();
         },1000)
     </script>
